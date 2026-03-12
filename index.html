@@ -10,153 +10,8 @@
     <script src="https://d3js.org/d3-geo-projection.v4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/d3-celestial@0.7.35/celestial.min.js"></script>
     
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0a1928 0%, #1a3a4a 100%);
-            color: white;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        h1 {
-            font-size: 2.5em;
-            color: #FFD700;
-            text-shadow: 0 0 20px rgba(255,215,0,0.3);
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-        
-        .subtitle {
-            font-size: 1.2em;
-            color: #aaddff;
-            font-style: italic;
-            border-bottom: 2px solid #2a4a6a;
-            padding-bottom: 15px;
-        }
-        
-        .map-container {
-            background: #000;
-            border-radius: 16px;
-            padding: 10px;
-            box-shadow: 0 0 40px rgba(0,100,200,0.3);
-            border: 2px solid #3a6a8a;
-            margin-bottom: 30px;
-        }
-        
-        #celestial-map {
-            width: 100%;
-            height: 600px;
-            border-radius: 8px;
-        }
-        
-        .message-box {
-            background: rgba(10,30,50,0.9);
-            border-left: 6px solid #FFD700;
-            padding: 25px;
-            border-radius: 12px;
-            margin: 30px 0;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-        
-        .message-box p {
-            margin: 15px 0;
-            line-height: 1.8;
-            font-size: 1.1em;
-        }
-        
-        .message-box .greeting {
-            font-size: 1.4em;
-            color: #FFD700;
-            font-weight: bold;
-        }
-        
-        .message-box .signature {
-            text-align: right;
-            margin-top: 25px;
-            font-style: italic;
-            color: #aaddff;
-        }
-        
-        .spotify-player {
-            background: rgba(0,0,0,0.3);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 30px 0;
-            border: 1px solid #2a5a7a;
-        }
-        
-        .controls {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin: 25px 0;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            background: #2a4a6a;
-            color: white;
-            border: 2px solid #3a6a8a;
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-size: 1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
-        }
-        
-        .btn:hover {
-            background: #3a6a8a;
-            border-color: #FFD700;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,215,0,0.2);
-        }
-        
-        .btn-gold {
-            background: #FFD700;
-            border-color: #FFA500;
-            color: #0a1a2a;
-        }
-        
-        .btn-gold:hover {
-            background: #FFA500;
-            box-shadow: 0 5px 20px rgba(255,215,0,0.4);
-        }
-        
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #2a4a6a;
-            color: #8a9bb5;
-            font-size: 0.9em;
-        }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 1.8em; }
-            #celestial-map { height: 400px; }
-            .message-box p { font-size: 1em; }
-        }
-    </style>
+    <!-- CSS separato -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -179,14 +34,14 @@
             <p class="greeting">Ciao Marco,</p>
             
             <p>Questa è la mappa del cielo che illuminava Varigotti la notte in cui ti sei laureato. 
-            Abbiamo scelto per te una stella speciale: <strong style="color: #FFD700;">Vega (α Lyrae)</strong>.</p>
+            Abbiamo scelto per te una stella speciale: <strong>Vega (α Lyrae)</strong>.</p>
             
             <p>Vega è una delle stelle più luminose del cielo, quella che gli antichi chiamavano 
             "l'aquila che cade" e che ha ispirato poeti, astronomi e sognatori per millenni. 
             Si trova nella costellazione della Lira, lo strumento dei poeti - quanto di più adatto per te.</p>
             
             <p>Con questa mappa interattiva puoi esplorare il cielo:</p>
-            <ul style="margin-left: 30px; color: #aaddff;">
+            <ul>
                 <li>🔍 <strong>Zoom</strong> con la rotellina del mouse</li>
                 <li>🔄 <strong>Ruota</strong> trascinando con il mouse</li>
                 <li>⭐ <strong>Clicca sulle stelle</strong> per scoprire i loro nomi</li>
@@ -204,11 +59,10 @@
         
         <!-- Player Spotify per Counting Stars -->
         <div class="spotify-player">
-            <h3 style="color: #FFD700; margin-bottom: 15px;">🎵 La colonna sonora</h3>
-            <iframe style="border-radius:12px" 
-                src="https://open.spotify.com/embed/track/7nrNRZDtrr4CocL2yWQqQc?utm_source=generator" 
-                width="100%" height="80" frameBorder="0" 
-                allowfullscreen="" 
+            <h3>🎵 La colonna sonora</h3>
+            <iframe 
+                src="https://open.spotify.com/embed/track/1q1kjt6J71wh6lddU8OFtG?utm_source=generator" 
+                width="100%" height="80" 
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
             </iframe>
         </div>
