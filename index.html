@@ -2,84 +2,47 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Stella di Marco</title>
-    
-    <!-- D3.js e d3-celestial -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://d3js.org/d3-geo-projection.v4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/d3-celestial@0.7.35/celestial.min.js"></script>
-    
-    <!-- CSS separato -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
             <h1>✨ La Stella di Marco ✨</h1>
-            <div class="subtitle">
-                Il cielo di Varigotti, la notte della tua laurea
-                <br>
-                <small>26 marzo 2026 · ore 21:00</small>
-            </div>
+            <div class="subtitle">Il cielo di Varigotti, 26 marzo 2026 · ore 21:00</div>
         </header>
         
-        <!-- Mappa interattiva -->
+        <!-- STELLARIUM WEB - LA MAPPA GIUSTA -->
         <div class="map-container">
-            <div id="celestial-map"></div>
-        </div>
-        
-        <!-- Messaggio personalizzato -->
-        <div class="message-box">
-            <p class="greeting">Ciao Marco,</p>
-            
-            <p>Questa è la mappa del cielo che illuminava Varigotti la notte in cui ti sei laureato. 
-            Abbiamo scelto per te una stella speciale: <strong>Vega (α Lyrae)</strong>.</p>
-            
-            <p>Vega è una delle stelle più luminose del cielo, quella che gli antichi chiamavano 
-            "l'aquila che cade" e che ha ispirato poeti, astronomi e sognatori per millenni. 
-            Si trova nella costellazione della Lira, lo strumento dei poeti - quanto di più adatto per te.</p>
-            
-            <p>Con questa mappa interattiva puoi esplorare il cielo:</p>
-            <ul>
-                <li>🔍 <strong>Zoom</strong> con la rotellina del mouse</li>
-                <li>🔄 <strong>Ruota</strong> trascinando con il mouse</li>
-                <li>⭐ <strong>Clicca sulle stelle</strong> per scoprire i loro nomi</li>
-            </ul>
-            
-            <p>Ovunque andrai, ricordati che c'è una stella che porta il tuo nome e un gruppo di amici 
-            che ti guardano da lontano, come guardano il cielo.</p>
-            
-            <p class="signature">
-                Con affetto,<br>
-                [I VOSTRI NOMI]<br>
-                <small>Informatici, poeti per un giorno</small>
-            </p>
-        </div>
-        
-        <!-- Player Spotify per Counting Stars -->
-        <div class="spotify-player">
-            <h3>🎵 La colonna sonora</h3>
             <iframe 
-                src="https://open.spotify.com/embed/track/1q1kjt6J71wh6lddU8OFtG?utm_source=generator" 
-                width="100%" height="80" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+                src="https://stellarium-web.org/?lat=44.18203&lon=8.39737&date=2026-03-26T20:00:00Z&target=vega" 
+                style="width:100%; height:600px; border:none; border-radius:8px;" 
+                allowfullscreen>
             </iframe>
         </div>
         
-        <!-- Controlli interattivi -->
-        <div class="controls">
-            <button class="btn" onclick="resetView()">🌍 Vista originale</button>
-            <button class="btn btn-gold" onclick="highlightVega()">⭐ Evidenzia Vega</button>
-            <button class="btn" onclick="toggleConstellations()">✨ Mostra/Nascondi costellazioni</button>
+        <!-- MESSAGGIO -->
+        <div class="message-box">
+            <p class="greeting">Ciao Marco,</p>
+            <p>Questa è la mappa del cielo di Varigotti la notte della tua laurea. 
+            La stella <strong style="color:#FFD700;">Vega</strong> è quella che abbiamo scelto per te, 
+            nella costellazione della Lira, lo strumento dei poeti.</p>
+            <p>Nella mappa qui sopra puoi esplorare il cielo. Vega è già centrata, 
+            la vedrai come la stella più brillante.</p>
+            <p class="signature">Con affetto,<br>[I vostri nomi]</p>
         </div>
         
-        <div class="footer">
-            Creato con ❤️ dai tuoi amici informatici<br>
-            <small>Dati astronomici: catalogo Hipparcos · Libreria: d3-celestial</small>
+        <!-- SPOTIFY -->
+        <div class="spotify-player">
+            <h3>🎵 Counting Stars</h3>
+            <iframe 
+                src="https://open.spotify.com/embed/track/1q1kjt6J71wh6lddU8OFtG" 
+                width="100%" height="80" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen">
+            </iframe>
         </div>
+        
+        <div class="footer">Con ❤️, amici informatici</div>
     </div>
-    
-    <script src="script.js"></script>
 </body>
 </html>

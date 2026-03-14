@@ -1,3 +1,4 @@
+/* Stili per La Stella di Marco */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +18,6 @@ body {
     margin: 0 auto;
 }
 
-/* Header */
 header {
     text-align: center;
     margin-bottom: 30px;
@@ -28,7 +28,6 @@ h1 {
     color: #FFD700;
     text-shadow: 0 0 20px rgba(255,215,0,0.3);
     margin-bottom: 10px;
-    letter-spacing: 2px;
 }
 
 .subtitle {
@@ -39,7 +38,6 @@ h1 {
     padding-bottom: 15px;
 }
 
-/* Mappa */
 .map-container {
     background: #000;
     border-radius: 16px;
@@ -49,27 +47,17 @@ h1 {
     margin-bottom: 30px;
 }
 
-#celestial-map {
-    width: 100%;
-    height: 600px;
-    border-radius: 8px;
-}
-
-/* Messaggio personalizzato */
 .message-box {
     background: rgba(10,30,50,0.9);
     border-left: 6px solid #FFD700;
     padding: 25px;
     border-radius: 12px;
     margin: 30px 0;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 .message-box p {
     margin: 15px 0;
     line-height: 1.8;
-    font-size: 1.1em;
 }
 
 .message-box .greeting {
@@ -79,7 +67,7 @@ h1 {
 }
 
 .message-box ul {
-    margin-left: 30px;
+    margin: 15px 0 15px 30px;
     color: #aaddff;
 }
 
@@ -94,7 +82,6 @@ h1 {
     color: #aaddff;
 }
 
-/* Player Spotify */
 .spotify-player {
     background: rgba(0,0,0,0.3);
     border-radius: 12px;
@@ -108,61 +95,25 @@ h1 {
     margin-bottom: 15px;
 }
 
-/* Pulsanti di controllo */
-.controls {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin: 25px 0;
-    flex-wrap: wrap;
+.qr-info {
+    background: rgba(255,215,0,0.1);
+    border: 2px dashed #FFD700;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 30px 0;
+    font-size: 1.1em;
 }
 
-.btn {
-    background: #2a4a6a;
-    color: white;
-    border: 2px solid #3a6a8a;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    letter-spacing: 1px;
-}
-
-.btn:hover {
-    background: #3a6a8a;
-    border-color: #FFD700;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255,215,0,0.2);
-}
-
-.btn-gold {
-    background: #FFD700;
-    border-color: #FFA500;
-    color: #0a1a2a;
-}
-
-.btn-gold:hover {
-    background: #FFA500;
-    box-shadow: 0 5px 20px rgba(255,215,0,0.4);
-}
-
-/* Footer */
 .footer {
     text-align: center;
     margin-top: 50px;
     padding-top: 20px;
     border-top: 1px solid #2a4a6a;
     color: #8a9bb5;
-    font-size: 0.9em;
 }
 
-/* Responsive per mobile */
 @media (max-width: 768px) {
     h1 { font-size: 1.8em; }
-    #celestial-map { height: 400px; }
-    .message-box p { font-size: 1em; }
-    .controls { flex-direction: column; }
-    .btn { width: 100%; }
+    .map-container iframe { height: 400px; }
 }
