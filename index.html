@@ -4,11 +4,32 @@
     <meta charset="UTF-8">
     <title>La Stella di Marco</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Stile per le soluzioni nascoste */
+        .solution-box {
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            border-left: 3px solid #FFD700;
+            display: none;
+        }
+        .solution-toggle {
+            color: #aaddff;
+            font-size: 0.9em;
+            cursor: pointer;
+            text-decoration: underline dotted;
+            margin-left: 20px;
+        }
+        .solution-toggle:hover {
+            color: #FFD700;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>✨ La Stella di Marco ✨</h1>
+            <h1>✨ La Stella per Marco ✨</h1>
             <div class="subtitle">Il cielo di Varigotti, 26 marzo 2026 · ore 21:00</div>
         </header>
         
@@ -21,14 +42,95 @@
             </iframe>
         </div>
         
-        <!-- MINI-GUIDA -->
-        <div style="text-align: center; margin: 20px 0; padding: 15px; background: rgba(255,215,0,0.1); border-radius: 8px;">
-            <p style="color: #FFD700; margin-bottom: 10px; font-size: 1.1em;">🔭 Come vedere Vega:</p>
-            <p style="color: white;">
-                1. Clicca sulla lente di ingrandimento 🔍 in alto a destra nella mappa<br>
-                2. Scrivi <strong>"Vega"</strong> e premi Invio<br>
-                3. La mappa si centrerà sulla tua stella!
+        <!-- GIOCO: TROVA LA TUA STELLA -->
+        <div style="text-align: center; margin: 40px 0 30px 0; padding: 25px; background: linear-gradient(145deg, #0f2a3a, #0a1f2f); border-radius: 20px; border: 2px solid #FFD700; box-shadow: 0 0 30px rgba(255,215,0,0.2);">
+
+            <h2 style="color: #FFD700; font-size: 2em; margin-bottom: 20px; text-shadow: 0 0 10px rgba(255,215,0,0.3);">
+                🌟 TROVA LA TUA STELLA 🌟
+            </h2>
+            
+            <p style="color: #aaddff; font-size: 1.1em; margin-bottom: 30px; font-style: italic;">
+                Segui gli indizi, uno dopo l'altro. Se ti blocchi, puoi chiedere un aiuto.
             </p>
+
+            <!-- INDIZIO 1: IL POSTO -->
+            <div style="margin: 20px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 12px; text-align: left;">
+                <p style="color: #FFD700; font-size: 1.3em; margin-bottom: 5px;">🔍 1. Il luogo del cuore</p>
+                <p style="color: white; margin-left: 20px;">
+                    "Tra il mare e la roccia, dove il blu è più profondo, <br>
+                    è lì che ci siamo incontrati. Dov'è?"
+                </p>
+                <div>
+                    <span class="solution-toggle" onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">❓ Ho bisogno di un indizio...</span>
+                    <div class="solution-box">
+                        In basso a sinistra nella mappa, clicca sull'icona 📍 e scegli <strong>Varigotti</strong>.
+                    </div>
+                </div>
+            </div>
+
+            <!-- INDIZIO 2: PULIRE IL CIELO -->
+            <div style="margin: 20px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 12px; text-align: left;">
+                <p style="color: #FFD700; font-size: 1.3em; margin-bottom: 5px;">🌫️ 2. Togliamo il velo</p>
+                <p style="color: white; margin-left: 20px;">
+                    "Per vedere le stelle, a volte bisogna togliere ciò che ci sta davanti. <br>
+                    Cosa offusca il nostro sguardo?"
+                </p>
+                <div>
+                    <span class="solution-toggle" onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">❓ Ho bisogno di un indizio...</span>
+                    <div class="solution-box">
+                        In basso a destra, disattiva l'icona 🌫️ (Atmosfera) e l'icona 🌍 (Terra/Orizzonte).
+                    </div>
+                </div>
+            </div>
+
+            <!-- INDIZIO 3: LA COSTELLAZIONE -->
+            <div style="margin: 20px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 12px; text-align: left;">
+                <p style="color: #FFD700; font-size: 1.3em; margin-bottom: 5px;">🎵 3. Lo strumento del poeta</p>
+                <p style="color: white; margin-left: 20px;">
+                    "La nostra stella vive in una costellazione che ha la forma <br>
+                    dello strumento più antico usato per accompagnare i versi. Qual è?"
+                </p>
+                <div>
+                    <span class="solution-toggle" onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">❓ Ho bisogno di un indizio...</span>
+                    <div class="solution-box">
+                        Cerca la costellazione della <strong>Lira</strong> (o clicca sulla lente 🔍 e scrivi "Lyra").
+                    </div>
+                </div>
+            </div>
+
+            <!-- INDIZIO 4: LA STELLA -->
+            <div style="margin: 20px 0; padding: 15px; background: rgba(255,215,0,0.1); border-radius: 12px; text-align: left; border: 1px solid #FFD700;">
+                <p style="color: #FFD700; font-size: 1.3em; margin-bottom: 5px;">⭐ 4. La stella di Marco</p>
+                <p style="color: white; margin-left: 20px;">
+                    "È la quinta stella più brillante del cielo, e il suo nome <br>
+                    ricorda un'aquila in volo. Gli antichi la chiamavano 'la cadente'. <br>
+                    Come si chiama?"
+                </p>
+                <div>
+                    <span class="solution-toggle" onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">❓ Ho bisogno di un indizio...</span>
+                    <div class="solution-box">
+                        Usa la lente 🔍 e cerca <strong>"Vega"</strong>. Ecco la tua stella! 🎉
+                    </div>
+                </div>
+            </div>
+
+            <!-- MESSAGGIO FINALE (inizialmente nascosto) -->
+            <div id="finalMessage" style="margin-top: 30px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 12px; display: none;">
+                <p style="color: #FFD700; font-size: 1.2em;">
+                    ✨ Complimenti, Marco! Hai trovato la tua stella. ✨
+                </p>
+                <p style="color: #aaddff;">
+                    Ora brillerà sempre per te, ovunque tu sia.
+                </p>
+            </div>
+
+            <!-- Pulsante per mostrare il messaggio finale -->
+            <div style="margin-top: 20px;">
+                <button onclick="document.getElementById('finalMessage').style.display='block'; this.style.display='none';" 
+                        style="background: transparent; border: 1px solid #FFD700; color: #FFD700; padding: 8px 20px; border-radius: 20px; cursor: pointer; font-size: 0.9em;">
+                    ✨ Ho trovato Vega! ✨
+                </button>
+            </div>
         </div>
         
         <!-- MESSAGGIO CON I NOMI -->
@@ -43,7 +145,7 @@
             che ti guardano da lontano, come guardano il cielo.</p>
             <p class="signature">
                 Con affetto,<br>
-                <strong style="color:#FFD700; font-size:1.2em;">Giulia, Andrea e Anna</strong>
+                <strong style="color:#FFD700; font-size:1.2em;">Andrea, Anna e Giulia</strong>
             </p>
         </div>
         
@@ -62,7 +164,7 @@
             </iframe>
         </div>
         
-        <div class="footer">Creato con ❤️ da Giulia, Andrea e Anna</div>
+        <div class="footer">Creato con il ❤️ da Andrea, Anna e Giulia</div>
     </div>
 </body>
 </html>
