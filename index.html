@@ -12,24 +12,40 @@
             <div class="subtitle">Il cielo di Varigotti, 26 marzo 2026 · ore 21:00</div>
         </header>
         
-        <!-- STELLARIUM WEB - LA MAPPA GIUSTA -->
+        <!-- STELLARIUM CON POSIZIONE FORZATA SU VARIGOTTI -->
         <div class="map-container">
             <iframe 
-                src="https://stellarium-web.org/?lat=44.18203&lon=8.39737&date=2026-03-26T20:00:00Z&target=vega" 
+                src="https://stellarium-web.org/?lat=44.18203&lon=8.39737&date=2026-03-26T20:00:00Z&target=vega&lock=1" 
                 style="width:100%; height:600px; border:none; border-radius:8px;" 
                 allowfullscreen>
             </iframe>
         </div>
         
-        <!-- MESSAGGIO -->
+        <!-- MINI-GUIDA PER TROVARE VEGA -->
+        <div style="text-align: center; margin: 20px 0; padding: 15px; background: rgba(255,215,0,0.1); border-radius: 8px;">
+            <p style="color: #FFD700; margin-bottom: 10px; font-size: 1.1em;">🔭 Come vedere Vega:</p>
+            <p style="color: white;">
+                1. Clicca sulla lente di ingrandimento 🔍 in alto a destra nella mappa<br>
+                2. Scrivi <strong>"Vega"</strong> e premi Invio<br>
+                3. La mappa si centrerà sulla tua stella!
+            </p>
+            <p style="color: #aaddff; margin-top: 10px; font-size: 0.9em;">
+                ⭐ Vega è già nel link, ma se vuoi puoi cercarla manualmente
+            </p>
+        </div>
+        
+        
         <div class="message-box">
             <p class="greeting">Ciao Marco,</p>
             <p>Questa è la mappa del cielo di Varigotti la notte della tua laurea. 
             La stella <strong style="color:#FFD700;">Vega</strong> è quella che abbiamo scelto per te, 
             nella costellazione della Lira, lo strumento dei poeti.</p>
-            <p>Nella mappa qui sopra puoi esplorare il cielo. Vega è già centrata, 
-            la vedrai come la stella più brillante.</p>
-            <p class="signature">Con affetto,<br>[I vostri nomi]</p>
+            <p>Nella mappa qui sopra puoi esplorare il cielo. La posizione è già impostata su Varigotti 
+            e Vega è centrata.</p>
+            <p class="signature">
+                Con affetto,<br>
+                <strong style="color:#FFD700; font-size:1.2em;">Giulia, Andrea e Anna</strong>
+            </p>
         </div>
         
         <!-- SPOTIFY -->
@@ -42,7 +58,7 @@
             </iframe>
         </div>
         
-        <div class="footer">Con ❤️, amici informatici</div>
+        <div class="footer">Con ❤️, Giulia, Andrea e Anna</div>
     </div>
 </body>
 </html>
