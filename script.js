@@ -18,64 +18,48 @@ window.onclick = function(event) {
     if (event.target == modal) closeModal();
 }
 
-// Gestione click sulle emoji - VERSIONE SEMPLICE E FUNZIONANTE
+// Gestione click sulle emoji - CON INDICI CORRETTI E NOMI ESATTI
 document.addEventListener('DOMContentLoaded', function() {
     console.log("🚀 script.js caricato!");
     
     const emojis = document.querySelectorAll('.side-emoji');
     console.log("Trovate", emojis.length, "emoji");
     
-    // PRIMA RIGA - Alto sx e Alto dx
+    // INDICE 0: emoji-1 (poesia1) - ⭐ Poesia 1 - Cielo (alto sx)
     emojis[0].addEventListener('click', function() {
-        openModal('⭐ Cielo',
+        openModal('⭐ Poesia 1 - Cielo',
             `<div style="text-align:center;">
-                <p style="font-style:italic; font-size:1.2em;">
-                    "Da un giorno all'altro<br>sostituiscono la pioggia.<br>
-                    Le nuvole sganciano<br>sulle nostre teste<br>
+                <p style="font-style:italic; font-size:1.2em; line-height:1.8;">
+                    "Da un giorno all'altro<br>
+                    sostituiscono la pioggia.<br>
+                    Le nuvole sganciano<br>
+                    sulle nostre teste<br>
                     miliardi di bigliettini.<br>
-                    Il mare ha già<br>le farfalle nello stomaco.<br>
-                    Sta arrivando:<br><br>
-                    'Alla mia festa sono vietati gli ombrelli'"
+                    Il mare ha già<br>
+                    le farfalle nello stomaco.<br>
+                    Sta arrivando:<br>
+                    <br>
+                    'Alla mia festa sono vietati<br>
+                    gli ombrelli'"
                 </p>
             </div>`
         );
     });
     
+    // INDICE 1: emoji-2 (foto1) - Foto 1 (alto dx)
     emojis[1].addEventListener('click', function() {
-        openModal('🌊 Foto 1',
+        openModal('Foto 1',
             `<div style="text-align:center;">
-                <img src="foto1.png" style="max-width:100%; max-height:500px; border-radius:12px; border:3px solid #FFD700;">
-                <p style="color:#FFD700; font-size:1.5em; margin-top:10px;">NESUNO<br>GUARDA<br>MENTRE</p>
+                <img src="foto1.png" style="max-width:100%; max-height:800px; border-radius:12px; border:3px solid #FFD700;">
             </div>`
         );
     });
     
-    // SECONDA RIGA - Centro sx e Centro dx
+    // INDICE 2: emoji-3 (poesia3) - 💭 Poesia 3 - Pensieri (basso sx)
     emojis[2].addEventListener('click', function() {
-        openModal('🌊 Foto 2',
+        openModal('💭 Poesia 3 - Pensieri',
             `<div style="text-align:center;">
-                <img src="foto2.png" style="max-width:100%; max-height:500px; border-radius:12px; border:3px solid #FFD700;">
-            </div>`
-        );
-    });
-    
-    emojis[4].addEventListener('click', function() {
-        openModal('🌊 Mare',
-            `<div style="text-align:center;">
-                <p style="font-style:italic; font-size:1.2em;">
-                    "Piuttosto di tuffarci tra le onde<br>
-                    siamo davvero disposti<br>
-                    a rifare sempre lo stesso castello di sabbia?"
-                </p>
-            </div>`
-        );
-    });
-    
-    // TERZA RIGA - Basso sx e Basso dx
-    emojis[3].addEventListener('click', function() {
-        openModal('💭 Pensieri',
-            `<div style="text-align:center;">
-                <p style="font-style:italic; font-size:1.2em;">
+                <p style="font-style:italic; font-size:1.2em; line-height:1.8;">
                     "Paure in spalla ti chiedevi<br>
                     come farò ad arrivare nel futuro.<br>
                     Leggevi tanto sperando di trovare<br>
@@ -89,10 +73,33 @@ document.addEventListener('DOMContentLoaded', function() {
         );
     });
     
-    emojis[5].addEventListener('click', function() {
-        openModal('💭 Foto 3',
+    // INDICE 3: emoji-4 (foto3) - Foto 3 (basso dx)
+    emojis[3].addEventListener('click', function() {
+        openModal('Foto 3',
             `<div style="text-align:center;">
-                <img src="foto3.png" style="max-width:100%; max-height:500px; border-radius:12px; border:3px solid #FFD700;">
+                <img src="foto3.png" style="max-width:100%; max-height:800px; border-radius:12px; border:3px solid #FFD700;">
+            </div>`
+        );
+    });
+    
+    // INDICE 4: emoji-5 (foto2) - Foto 2 (centro sx)
+    emojis[4].addEventListener('click', function() {
+        openModal('Foto 2',
+            `<div style="text-align:center;">
+                <img src="foto2.png" style="max-width:100%; max-height:800px; border-radius:12px; border:3px solid #FFD700;">
+            </div>`
+        );
+    });
+    
+    // INDICE 5: emoji-6 (poesia2) - 🌊 Poesia 2 - Mare (centro dx)
+    emojis[5].addEventListener('click', function() {
+        openModal('🌊 Poesia 2 - Mare',
+            `<div style="text-align:center;">
+                <p style="font-style:italic; font-size:1.2em; line-height:1.8;">
+                    "Piuttosto di tuffarci tra le onde<br>
+                    siamo davvero disposti<br>
+                    a rifare sempre lo stesso castello di sabbia?"
+                </p>
             </div>`
         );
     });
