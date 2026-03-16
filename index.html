@@ -2,63 +2,342 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>La Stella di Marco</title>
+    <title>Una Stella per Marco</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Stile per le soluzioni nascoste (già esistente) */
+        .solution-box {
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            border-left: 3px solid #FFD700;
+            display: none;
+        }
+        .solution-toggle {
+            color: #aaddff;
+            font-size: 0.9em;
+            cursor: pointer;
+            text-decoration: underline dotted;
+            margin-left: 20px;
+        }
+        .solution-toggle:hover {
+            color: #FFD700;
+        }
+
+        /* NUOVO: Stili per le emoji laterali */
+        .side-emoji {
+            position: fixed;
+            z-index: 100;
+            font-size: 2.5rem;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 0 5px rgba(255,215,0,0.3));
+        }
+        .side-emoji:hover {
+            opacity: 1;
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 0 15px #FFD700);
+        }
+
+        /* Posizionamento emoji */
+        .emoji-1 { top: 20px; left: 20px; }
+        .emoji-2 { top: 20px; right: 20px; }
+        .emoji-3 { bottom: 20px; left: 20px; }
+        .emoji-4 { bottom: 20px; right: 20px; }
+        .emoji-5 { top: 50%; left: 10px; transform: translateY(-50%); }
+        .emoji-6 { top: 50%; right: 10px; transform: translateY(-50%); }
+
+        /* NUOVO: Stili per la finestra modale */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, #0f2a3a, #0a1f2f);
+            margin: 10% auto;
+            padding: 30px;
+            border: 2px solid #FFD700;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 0 50px rgba(255,215,0,0.3);
+            position: relative;
+            color: white;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #FFD700;
+            font-size: 2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            transform: scale(1.2);
+            color: #fff;
+        }
+
+        .modal-title {
+            color: #FFD700;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3a6a8a;
+        }
+
+        .modal-body {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #aaddff;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .modal-body img {
+            max-width: 100%;
+            border-radius: 12px;
+            border: 2px solid #FFD700;
+            margin: 10px 0;
+        }
+
+        .modal-body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal-body::-webkit-scrollbar-track {
+            background: #0a1f2f;
+            border-radius: 10px;
+        }
+
+        .modal-body::-webkit-scrollbar-thumb {
+            background: #FFD700;
+            border-radius: 10px;
+        }
+
+        .modal-body::-webkit-scrollbar-thumb:hover {
+            background: #FFA500;
+        }
+
+        /* Responsive per mobile */
+        @media (max-width: 768px) {
+            .side-emoji {
+                font-size: 1.8rem;
+            }
+            .modal-content {
+                width: 95%;
+                margin: 20% auto;
+                padding: 20px;
+            }
+            .modal-title {
+                font-size: 1.4em;
+            }
+            .modal-body {
+                font-size: 1em;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- EMOJI LATERALI CLICCABILI -->
+    <div class="side-emoji emoji-1" data-surprise="poesia1">🌟</div>
+    <div class="side-emoji emoji-2" data-surprise="foto1">🌠</div>
+    <div class="side-emoji emoji-3" data-surprise="poesia3">🪐</div>
+    <div class="side-emoji emoji-4" data-surprise="foto3">🌙</div>
+    <div class="side-emoji emoji-5" data-surprise="foto2">✨</div>
+    <div class="side-emoji emoji-6" data-surprise="poesia2">☄️</div>
+
+    <!-- FINESTRA MODALE (inizialmente nascosta) -->
+    <div id="surpriseModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modalTitle" class="modal-title"></div>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </div>
+
     <div class="container">
         <header>
-            <h1>✨ La Stella di Marco ✨</h1>
-            <div class="subtitle">Il cielo di Varigotti, 26 marzo 2026 · ore 21:00</div>
+            <h1>✨ Una Stella per Marco ✨</h1>
+            <div class="subtitle">Il cielo stellato del 26 marzo 2026 · ore 21:00</div>
         </header>
         
-        <!-- STELLARIUM CON POSIZIONE FORZATA SU VARIGOTTI (VERSIONE POTENZIATA) -->
+        <!-- STELLARIUM CON POSIZIONE FORZATA -->
         <div class="map-container">
             <iframe 
-                src="https://stellarium-web.org/?lat=44.18203&lon=8.39737&date=2026-03-26T20:00:00Z&target=vega&lock=1&use=1" 
+                src="https://stellarium-web.org/?lat=44.18203&lon=8.39737&date=2026-03-26T20:00:00Z&target=vega&lock=1&geolocation=off&manual=1" 
                 style="width:100%; height:600px; border:none; border-radius:8px;" 
                 allowfullscreen>
             </iframe>
         </div>
         
-        <!-- MINI-GUIDA -->
-        <div style="text-align: center; margin: 20px 0; padding: 15px; background: rgba(255,215,0,0.1); border-radius: 8px;">
-            <p style="color: #FFD700; margin-bottom: 10px; font-size: 1.1em;">🔭 Come vedere Vega:</p>
-            <p style="color: white;">
-                1. Clicca sulla lente di ingrandimento 🔍 in alto a destra nella mappa<br>
-                2. Scrivi <strong>"Vega"</strong> e premi Invio<br>
-                3. La mappa si centrerà sulla tua stella!
+        <!-- GIOCO: TROVA LA TUA STELLA -->
+        <div style="text-align: center; margin: 40px 0 30px 0; padding: 25px; background: linear-gradient(145deg, #0f2a3a, #0a1f2f); border-radius: 20px; border: 2px solid #FFD700; box-shadow: 0 0 30px rgba(255,215,0,0.2);">
+
+            <h2 style="color: #FFD700; font-size: 2em; margin-bottom: 20px; text-shadow: 0 0 10px rgba(255,215,0,0.3);">
+                🌟 TROVA LA TUA STELLA 🌟
+            </h2>
+            
+            <p style="color: #aaddff; font-size: 1.1em; margin-bottom: 30px; font-style: italic;">
+                Segui gli indizi, uno dopo l'altro. Se ti blocchi chiedi un aiuto.
             </p>
+
+            <!-- INDIZIO 1: IL POSTO -->
+            <div style="margin: 20px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 12px; text-align: left;">
+                <p style="color: #FFD700; font-size: 1.3em; margin-bottom: 5px;">🔍 1. Il luogo del cuore</p>
+                <p style="color: white; margin-left: 20px;">
+                    "Tra il mare e la roccia, dove il blu è più profondo, <br>
+                    è lì che ci siamo incontrati. Dov'è?"
+                </p>
+                <div>
+                    <span class="solution-toggle" onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">❓ Ho bisogno di un indizio...</span>
+                    <div class="solution-box">
+                        In basso a sinistra nella mappa, clicca sull'icona 📍 e scegli <strong>Varigotti</strong>.
+                    </div>
+                </div>
+            </div>
+
+            <!-- INDIZIO 2: PULIRE IL CIELO -->
+            <div style="margin: 20px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 12px; text-align: left;">
+                <p style="color: #FFD700; font-size: 1.3em; margin-bottom: 5px;">🌫️ 2. Togliamo il velo</p>
+                <p style="color: white; margin-left: 20px;">
+                    "Per vedere le stelle, a volte bisogna togliere ciò che ci sta davanti. <br>
+                    Cosa offusca il nostro sguardo?"
+                </p>
+                <div>
+                    <span class="solution-toggle" onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">❓ Ho bisogno di un indizio...</span>
+                    <div class="solution-box">
+                        In basso a destra, disattiva l'icona 🌫️ (Atmosfera) e l'icona 🌍 (Terra/Orizzonte).
+                    </div>
+                </div>
+            </div>
+
+            <!-- INDIZIO 3: LA COSTELLAZIONE -->
+            <div style="margin: 20px 0; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 12px; text-align: left;">
+                <p style="color: #FFD700; font-size: 1.3em; margin-bottom: 5px;">🎵 3. Lo strumento del poeta</p>
+                <p style="color: white; margin-left: 20px;">
+                    "La nostra stella vive in una costellazione che ha la forma <br>
+                    dello strumento più antico usato per accompagnare i versi. Qual è?"
+                </p>
+                <div>
+                    <span class="solution-toggle" onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">❓ Ho bisogno di un indizio...</span>
+                    <div class="solution-box">
+                        Cerca la costellazione della <strong>Lira</strong> (o clicca sulla lente 🔍 e scrivi "Lyra").
+                    </div>
+                </div>
+            </div>
+
+            <!-- INDIZIO 4: LA STELLA -->
+            <div style="margin: 20px 0; padding: 15px; background: rgba(255,215,0,0.1); border-radius: 12px; text-align: left; border: 1px solid #FFD700;">
+                <p style="color: #FFD700; font-size: 1.3em; margin-bottom: 5px;">⭐ 4. La stella di Marco</p>
+                <p style="color: white; margin-left: 20px;">
+                    "È la quinta stella più brillante del cielo, e il suo nome <br>
+                    ricorda un'aquila in volo. Gli antichi la chiamavano 'la cadente'. <br>
+                    Come si chiama?"
+                </p>
+                <div>
+                    <span class="solution-toggle" onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">❓ Ho bisogno di un indizio...</span>
+                    <div class="solution-box">
+                        Usa la lente 🔍 e cerca <strong>"Vega"</strong>. Ecco la tua stella! 🎉
+                    </div>
+                </div>
+            </div>
+
+            <!-- MESSAGGIO FINALE (inizialmente nascosto) -->
+            <div id="finalMessage" style="margin-top: 30px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 12px; display: none;">
+                <p style="color: #FFD700; font-size: 1.2em;">
+                    ✨ Complimenti, Marco! Hai trovato la tua stella. ✨
+                </p>
+                <p style="color: #aaddff;">
+                    Ora brillerà sempre per te, ovunque tu sia.
+                </p>
+            </div>
+
+            <!-- Pulsante per mostrare il messaggio finale -->
+            <div style="margin-top: 20px;">
+                <button onclick="document.getElementById('finalMessage').style.display='block'; this.style.display='none';" 
+                        style="background: transparent; border: 1px solid #FFD700; color: #FFD700; padding: 8px 20px; border-radius: 20px; cursor: pointer; font-size: 0.9em;">
+                    ✨ Ho trovato la mia stella! ✨
+                </button>
+            </div>
         </div>
         
         <!-- MESSAGGIO CON I NOMI -->
         <div class="message-box">
             <p class="greeting">Ciao Marco,</p>
             <p>Questa è la mappa del cielo di Varigotti la notte della tua laurea. 
-            Abbiamo scelto per te una stella speciale <strong style="color:#FFD700;">Vega</strong>.</p>
+            Abbiamo scelto per te una stella speciale: <strong style="color:#FFD700;">Vega</strong>.</p>
             <p>Vega è una delle stelle più luminose del cielo, quella che gli antichi chiamavano
             "l'aquila che cade" e che ha ispirato poeti, astronomi e sognatori per millenni.
-            Si trova nella costellazione della Lira, lo struemnto dei poeti - quanto di più adatto per te.</p>
+            Si trova nella costellazione della Lira, lo strumento dei poeti.</p>
+            <p>Ovunque andrai, ricordati che c'è una stella che porta il tuo nome e un gruppo di amici
+            che ti guardano da lontano, come guardano il cielo.</p>
             <p class="signature">
                 Con affetto,<br>
-                <strong style="color:#FFD700; font-size:1.2em;">Giulia, Andrea e Anna</strong>
+                <strong style="color:#FFD700; font-size:1.2em;">Andrea, Anna e Giulia</strong>
             </p>
         </div>
-
-        <p>Ovunque andrai, ricordati che c'è una stella che porta il tuo nome e un gruppo di amici
-        che ti guardano da lontano, come guardano il cielo.</p>
         
-        <!-- SPOTIFY -->
+        <!-- SPOTIFY - Counting Stars -->
         <div class="spotify-player">
-            <h3>🎵 Counting Stars</h3>
+            <h3 style="color: #FFD700; margin-bottom: 15px;">🎵 Counting Stars</h3>
             <iframe 
-                src="https://open.spotify.com/embed/track/1q1kjt6J71wh6lddU8OFtG" 
-                width="100%" height="80" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen">
+                style="border-radius:12px" 
+                src="https://open.spotify.com/embed/track/2tpWsVSb9UEmDRxAl1zhX1?utm_source=generator&theme=0" 
+                width="100%" 
+                height="152" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+            </iframe>
+        </div>
+
+        <!-- PLAYLIST AGGIUNTA -->
+        <div class="spotify-player" style="margin-top: 10px;">
+            <h3 style="color: #FFD700; margin-bottom: 15px;">🎧 Playlist per Marco</h3>
+            <iframe 
+                style="border-radius:12px" 
+                src="https://open.spotify.com/embed/playlist/1djSVHpOtGfpHZTkrlAna4?utm_source=generator&theme=0" 
+                width="100%" 
+                height="352" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
             </iframe>
         </div>
         
-        <div class="footer">Creato con ❤️, dai tuoi amici Giulia, Andrea e Anna</div>
+        <div class="footer">Creato con il ❤️ da Andrea, Anna e Giulia</div>
     </div>
+
+    <!-- COLLEGAMENTO AL FILE JAVASCRIPT ESTERNO -->
+    <script src="script.js"></script>
 </body>
 </html>
