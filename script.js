@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     '🖼️ Foto 1 - Alto Destra',
                     `<img src="Screenshot 2026-03-16 174221.png" 
                           alt="NESUNO GUARDA MENTRE" 
-                          style="width:100%; max-width:500px; border-radius:12px; margin:0 auto; display:block; border:2px solid #FFD700;">
-                     <p style="color:#FFD700; text-align:center; margin-top:15px; font-size:1.1em;">
+                 style="max-width: 100%; max-height: 300px; width: auto; height: auto; border-radius: 12px; border: 3px solid #FFD700; box-shadow: 0 0 20px rgba(255,215,0,0.3); object-fit: contain;">
+            <p style="color: #FFD700; text-align: center; margin-top: 20px; font-size: 1.5em; font-weight: bold; line-height: 1.8;">
                          NESUNO<br>GUARDA<br>MENTRE
                      </p>`
                 );
@@ -56,10 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     '🖼️ Foto 2 - Basso Sinistra',
                     `<img src="Screenshot 2026-03-16 174315.png" 
                         alt="NESUNO GUARDA MENTRE" 
-                        style="width:100%; max-width:500px; border-radius:12px; margin:0 auto; display:block; border:2px solid #FFD700;">
-                    <p style="color:#FFD700; text-align:center; font-size:1.2em;">
-                        (Qui andrà la seconda foto)
-                     </p>`
+                 style="max-width: 100%; max-height: 300px; width: auto; height: auto; border-radius: 12px; border: 3px solid #FFD700; box-shadow: 0 0 20px rgba(255,215,0,0.3); object-fit: contain;">
+            <p style="color: #FFD700; text-align: center; margin-top: 20px; font-size: 1.5em; font-weight: bold; line-height: 1.8;"></p>`
                 );
                 
             } else if (surprise === 'poesia2') {
@@ -84,8 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     '🖼️ Foto 3 - Centro Destra',
                     `<img src="Screenshot 2026-03-16 174338.png" 
                         alt="NESUNO GUARDA MENTRE" 
-                        style="width:100%; max-width:500px; border-radius:12px; margin:0 auto; display:block; border:2px solid #FFD700;">
-                    <p style="color:#FFD700; text-align:center; font-size:1.2em;">
+                 style="max-width: 100%; max-height: 300px; width: auto; height: auto; border-radius: 12px; border: 3px solid #FFD700; box-shadow: 0 0 20px rgba(255,215,0,0.3); object-fit: contain;">
+            <p style="color: #FFD700; text-align: center; margin-top: 20px; font-size: 1.5em; font-weight: bold; line-height: 1.8;">
                         (Qui andrà la terza foto)
                      </p>`
                 );
