@@ -20,10 +20,8 @@ window.onclick = function(event) {
 
 // Gestione click sulle emoji - CON INDICI CORRETTI E NOMI ESATTI
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("🚀 script.js caricato!");
-    
+
     const emojis = document.querySelectorAll('.side-emoji');
-    console.log("Trovate", emojis.length, "emoji");
     
     // INDICE 0: emoji-1 (poesia1) - ⭐ Poesia 1 - Cielo (alto sx)
     emojis[0].addEventListener('click', function() {
@@ -48,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // INDICE 1: emoji-2 (foto1) - Foto 1 (alto dx)
     emojis[1].addEventListener('click', function() {
-        openModal('Foto 1',
+        openModal('😺 Foto - Friendzi e gatito',
             `<div style="text-align:center;">
                 <img src="foto1.png" style="max-width:100%; max-height:800px; border-radius:12px; border:3px solid #FFD700;">
             </div>`
@@ -60,13 +58,15 @@ document.addEventListener('DOMContentLoaded', function() {
         openModal('💭 Poesia 3 - Pensieri',
             `<div style="text-align:center;">
                 <p style="font-style:italic; font-size:1.2em; line-height:1.8;">
-                    "Paure in spalla ti chiedevi<br>
+                    "Paure in spalla<br>
+                    ti chiedevi<br>
                     come farò ad arrivare nel futuro.<br>
                     Leggevi tanto sperando di trovare<br>
                     una qualche risposta,<br>
                     sempre alla prossima pagina.<br>
-                    Notti intere a studiare sotto stelle di carta,<br>
-                    Ma quei capitoli non li ha chiesti:<br>
+                    Notti intere a studiare<br> 
+                    sotto stelle di carta,<br>
+                    ma quei capitoli non li ha chiesti:<br>
                     bastava respirare."
                 </p>
             </div>`
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // INDICE 3: emoji-4 (foto3) - Foto 3 (basso dx)
     emojis[3].addEventListener('click', function() {
-        openModal('Foto 3',
+        openModal('🌠 Foto - Notte da Varigottini',
             `<div style="text-align:center;">
                 <img src="foto3.png" style="max-width:100%; max-height:800px; border-radius:12px; border:3px solid #FFD700;">
             </div>`
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // INDICE 4: emoji-5 (foto2) - Foto 2 (centro sx)
     emojis[4].addEventListener('click', function() {
-        openModal('Foto 2',
+        openModal('🧼 Foto - Experience in the toilette',
             `<div style="text-align:center;">
                 <img src="foto2.png" style="max-width:100%; max-height:800px; border-radius:12px; border:3px solid #FFD700;">
             </div>`
@@ -96,9 +96,11 @@ document.addEventListener('DOMContentLoaded', function() {
         openModal('🌊 Poesia 2 - Mare',
             `<div style="text-align:center;">
                 <p style="font-style:italic; font-size:1.2em; line-height:1.8;">
-                    "Piuttosto di tuffarci tra le onde<br>
+                    "Piuttosto di tuffarci<br>
+                    tra le onde<br>
                     siamo davvero disposti<br>
-                    a rifare sempre lo stesso castello di sabbia?"
+                    a rifare sempre<br>
+                    lo stesso castello di sabbia?"
                 </p>
             </div>`
         );
