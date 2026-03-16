@@ -1,33 +1,95 @@
-// Versione semplificata per test
-console.log("🚀 script.js caricato!");
-
+// Funzione per aprire la modale
 function openModal(title, content) {
-    console.log("Apertura modale:", title);
     document.getElementById('modalTitle').innerHTML = title;
     document.getElementById('modalBody').innerHTML = content;
     document.getElementById('surpriseModal').style.display = 'block';
     document.body.style.overflow = 'hidden';
 }
 
+// Funzione per chiudere la modale
 function closeModal() {
     document.getElementById('surpriseModal').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
 
+// Chiudi la modale cliccando fuori dal contenuto
 window.onclick = function(event) {
     const modal = document.getElementById('surpriseModal');
-    if (event.target == modal) closeModal();
+    if (event.target == modal) {
+        closeModal();
+    }
 }
 
+// Gestione click sulle emoji
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("📦 DOM caricato, cerco emoji...");
-    const emojis = document.querySelectorAll('.side-emoji');
-    console.log("🔍 Trovate", emojis.length, "emoji");
+    console.log("🚀 script.js caricato!");
     
-    emojis.forEach((emoji, index) => {
+    document.querySelectorAll('.side-emoji').forEach(emoji => {
         emoji.addEventListener('click', function() {
-            console.log("✨ Cliccata emoji", index, "surprise:", this.dataset.surprise);
-            openModal('Test ' + index, '<p style="color:#FFD700;">Funziona! 🎉</p>');
+            const surprise = this.dataset.surprise;
+            console.log("✨ Cliccata emoji:", surprise);
+            
+            if (surprise === 'poesia1') {
+                openModal(
+                    '📝 Poesia 1 - Alto Sinistra',
+                    `<p style="font-style: italic; text-align: center; font-size:1.2em;">
+                        "Sii come la stella polare,<br>
+                        immutabile nel tuo splendore<br>
+                        anche quando le nuvole la celano."<br>
+                        <span style="color: #FFD700;">— Proverbio Sufi</span>
+                    </p>`
+                );
+                
+            } else if (surprise === 'foto1') {
+                openModal(
+                    '🖼️ Foto 1 - Alto Destra',
+                    `<img src="Screenshot 2026-03-16 174221.png" 
+                          alt="NESUNO GUARDA MENTRE" 
+                          style="width:100%; max-width:500px; border-radius:12px; margin:0 auto; display:block; border:2px solid #FFD700;">
+                     <p style="color:#FFD700; text-align:center; margin-top:15px; font-size:1.1em;">
+                         NESUNO<br>GUARDA<br>MENTRE
+                     </p>`
+                );
+                
+            } else if (surprise === 'foto2') {
+                openModal(
+                    '🖼️ Foto 2 - Basso Sinistra',
+                    `<img src="Screenshot 2026-03-16 174315.png" 
+                        alt="NESUNO GUARDA MENTRE" 
+                        style="width:100%; max-width:500px; border-radius:12px; margin:0 auto; display:block; border:2px solid #FFD700;">
+                    <p style="color:#FFD700; text-align:center; font-size:1.2em;">
+                        (Qui andrà la seconda foto)
+                     </p>`
+                );
+                
+            } else if (surprise === 'poesia2') {
+                openModal(
+                    '📝 Poesia 2 - Basso Destra',
+                    `<p style="font-style: italic; text-align: center; font-size:1.2em;">
+                        "E tu brilli nei nostri cuori."<br>
+                        <span style="color: #FFD700;">— I tuoi amici</span>
+                    </p>`
+                );
+                
+            } else if (surprise === 'poesia3') {
+                openModal(
+                    '📝 Poesia 3 - Centro Sinistra',
+                    `<p style="font-style: italic; text-align: center; font-size:1.2em;">
+                        "Terza poesia in arrivo..."
+                    </p>`
+                );
+                
+            } else if (surprise === 'foto3') {
+                openModal(
+                    '🖼️ Foto 3 - Centro Destra',
+                    `<img src="Screenshot 2026-03-16 174338.png" 
+                        alt="NESUNO GUARDA MENTRE" 
+                        style="width:100%; max-width:500px; border-radius:12px; margin:0 auto; display:block; border:2px solid #FFD700;">
+                    <p style="color:#FFD700; text-align:center; font-size:1.2em;">
+                        (Qui andrà la terza foto)
+                     </p>`
+                );
+            }
         });
     });
 });
