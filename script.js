@@ -12,113 +12,88 @@ function closeModal() {
     document.body.style.overflow = 'auto';
 }
 
-// Chiudi la modale cliccando fuori dal contenuto
+// Chiudi la modale cliccando fuori
 window.onclick = function(event) {
     const modal = document.getElementById('surpriseModal');
-    if (event.target == modal) {
-        closeModal();
-    }
+    if (event.target == modal) closeModal();
 }
 
-// Gestione click sulle emoji
+// Gestione click sulle emoji - VERSIONE SEMPLICE E FUNZIONANTE
 document.addEventListener('DOMContentLoaded', function() {
     console.log("🚀 script.js caricato!");
     
-    document.querySelectorAll('.side-emoji').forEach(emoji => {
-        emoji.addEventListener('click', function() {
-            const surprise = this.dataset.surprise;
-            console.log("✨ Cliccata emoji:", surprise);
-            
-            // PRIMA RIGA: Cielo (alto sx) - Foto 1 (alto dx)
-            if (surprise === 'poesia1') {
-                openModal(
-                    '⭐ Poesia 1 - Cielo',
-                    `<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px;">
-                        <p style="font-style: italic; text-align: center; font-size:1.3em; line-height:1.8;">
-                            "Da un giorno all'altro<br>
-                            sostituiscono la pioggia.<br>
-                            Le nuvole sganciano<br>
-                            sulle nostre teste<br>
-                            miliardi di bigliettini.<br>
-                            Il mare ha già<br>
-                            le farfalle nello stomaco.<br>
-                            Sta arrivando:<br>
-                            <br>
-                            'Alla mia festa sono vietati<br>
-                            gli ombrelli'"
-                        </p>
-                    </div>`
-                );
-            }
-            else if (surprise === 'foto1') {
-                openModal(
-                    'Foto 1',
-                    `<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 500px;">
-                        <img src="foto1.png"
-                             style="max-width: 100%; max-height: 400px; width: auto; height: auto; border-radius: 12px; border: 3px solid #FFD700; box-shadow: 0 0 20px rgba(255,215,0,0.3); object-fit: contain;">
-                        <p style="color: #FFD700; text-align: center; margin-top: 20px; font-size: 1.8em; font-weight: bold; line-height: 1.8;">
+    const emojis = document.querySelectorAll('.side-emoji');
+    console.log("Trovate", emojis.length, "emoji");
     
-                        </p>
-                    </div>`
-                );
-            }
-            
-            // SECONDA RIGA: Foto 2 (centro sx) - Mare (centro dx)
-            else if (surprise === 'foto2') {
-                openModal(
-                    'Foto 2',
-                    `<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 500px;">
-                        <img src="foto2.png" 
-                             alt="Seconda foto" 
-                             style="max-width: 100%; max-height: 400px; width: auto; height: auto; border-radius: 12px; border: 3px solid #FFD700; box-shadow: 0 0 20px rgba(255,215,0,0.3); object-fit: contain;">
-                    </div>`
-                );
-            }
-            else if (surprise === 'poesia2') {
-                openModal(
-                    '🌊 Poesia 2 - Mare',
-                    `<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px;">
-                        <p style="font-style: italic; text-align: center; font-size:1.3em; line-height:1.8;">
-                            "Piuttosto di tuffarci<br>
-                            tra le onde<br>
-                            siamo davvero disposti<br>
-                            a rifare sempre<br>
-                            lo stesso castello di sabbia?"
-                        </p>
-                    </div>`
-                );
-            }
-            
-            // TERZA RIGA: Pensieri (basso sx) - Foto 3 (basso dx)
-            else if (surprise === 'poesia3') {
-                openModal(
-                    '💭 Poesia 3 - Pensieri',
-                    `<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px;">
-                        <p style="font-style: italic; text-align: center; font-size:1.3em; line-height:1.8;">
-                            "Paure in spalla<br>
-                            ti chiedevi<br>
-                            come farò ad arrivare nel futuro.<br>
-                            Leggevi tanto sperando di trovare<br>
-                            una qualche risposta,<br>
-                            sempre alla prossima pagina.<br>
-                            Notti intere a studiare<br>
-                            sotto stelle di carta,<br>
-                            Ma quei capitoli non li ha chiesti:<br>
-                            bastava respirare."
-                        </p>
-                    </div>`
-                );
-            }
-            else if (surprise === 'foto3') {
-                openModal(
-                    'Foto 3',
-                    `<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 500px;">
-                        <img src="foto3.png" 
-                             alt="Terza foto" 
-                             style="max-width: 100%; max-height: 400px; width: auto; height: auto; border-radius: 12px; border: 3px solid #FFD700; box-shadow: 0 0 20px rgba(255,215,0,0.3); object-fit: contain;">
-                    </div>`
-                );
-            }
-        });
+    // PRIMA RIGA - Alto sx e Alto dx
+    emojis[0].addEventListener('click', function() {
+        openModal('⭐ Cielo',
+            `<div style="text-align:center;">
+                <p style="font-style:italic; font-size:1.2em;">
+                    "Da un giorno all'altro<br>sostituiscono la pioggia.<br>
+                    Le nuvole sganciano<br>sulle nostre teste<br>
+                    miliardi di bigliettini.<br>
+                    Il mare ha già<br>le farfalle nello stomaco.<br>
+                    Sta arrivando:<br><br>
+                    'Alla mia festa sono vietati gli ombrelli'"
+                </p>
+            </div>`
+        );
+    });
+    
+    emojis[1].addEventListener('click', function() {
+        openModal('🌊 Foto 1',
+            `<div style="text-align:center;">
+                <img src="foto1.png" style="max-width:100%; max-height:500px; border-radius:12px; border:3px solid #FFD700;">
+                <p style="color:#FFD700; font-size:1.5em; margin-top:10px;">NESUNO<br>GUARDA<br>MENTRE</p>
+            </div>`
+        );
+    });
+    
+    // SECONDA RIGA - Centro sx e Centro dx
+    emojis[2].addEventListener('click', function() {
+        openModal('🌊 Foto 2',
+            `<div style="text-align:center;">
+                <img src="foto2.png" style="max-width:100%; max-height:500px; border-radius:12px; border:3px solid #FFD700;">
+            </div>`
+        );
+    });
+    
+    emojis[3].addEventListener('click', function() {
+        openModal('⭐ Mare',
+            `<div style="text-align:center;">
+                <p style="font-style:italic; font-size:1.2em;">
+                    "Piuttosto di tuffarci tra le onde<br>
+                    siamo davvero disposti<br>
+                    a rifare sempre lo stesso castello di sabbia?"
+                </p>
+            </div>`
+        );
+    });
+    
+    // TERZA RIGA - Basso sx e Basso dx
+    emojis[4].addEventListener('click', function() {
+        openModal('💭 Pensieri',
+            `<div style="text-align:center;">
+                <p style="font-style:italic; font-size:1.2em;">
+                    "Paure in spalla ti chiedevi<br>
+                    come farò ad arrivare nel futuro.<br>
+                    Leggevi tanto sperando di trovare<br>
+                    una qualche risposta,<br>
+                    sempre alla prossima pagina.<br>
+                    Notti intere a studiare sotto stelle di carta,<br>
+                    Ma quei capitoli non li ha chiesti:<br>
+                    bastava respirare."
+                </p>
+            </div>`
+        );
+    });
+    
+    emojis[5].addEventListener('click', function() {
+        openModal('💭 Foto 3',
+            `<div style="text-align:center;">
+                <img src="foto3.png" style="max-width:100%; max-height:500px; border-radius:12px; border:3px solid #FFD700;">
+            </div>`
+        );
     });
 });
