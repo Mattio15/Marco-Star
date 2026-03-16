@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
         );
     });
     
-    emojis[3].addEventListener('click', function() {
-        openModal('⭐ Mare',
+    emojis[4].addEventListener('click', function() {
+        openModal('🌊 Mare',
             `<div style="text-align:center;">
                 <p style="font-style:italic; font-size:1.2em;">
                     "Piuttosto di tuffarci tra le onde<br>
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // TERZA RIGA - Basso sx e Basso dx
-    emojis[4].addEventListener('click', function() {
+    emojis[3].addEventListener('click', function() {
         openModal('💭 Pensieri',
             `<div style="text-align:center;">
                 <p style="font-style:italic; font-size:1.2em;">
