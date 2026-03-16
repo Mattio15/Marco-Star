@@ -31,11 +31,19 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (surprise === 'poesia1') {
                 openModal(
-                    '📝 Poesia 1 - Alto Sinistra',
+                    '⭐ Poesia 1 - Cielo',
                     `<p style="font-style: italic; text-align: center; font-size:1.2em;">
-                        "Sii come la stella polare,<br>
-                        immutabile nel tuo splendore<br>
-                        anche quando le nuvole la celano."<br>
+                        "Da un giorno all'altro<br>
+                        sostituiscono la pioggia.<br>
+                        Le nuvole sganciano<br>
+                        sulle nostre teste<br>
+                        miliardi di biliettini.<br>
+                        Il mare ha già<br>
+                        le farfalle nello stomaco<br>
+                        Sta arrivando:<br>
+                        <br>
+                        "Alla mia festa sono vietati<br>
+                        gli ombrelli"<br>
                         <span style="color: #FFD700;">— Proverbio Sufi</span>
                     </p>`
                 );
@@ -62,18 +70,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 
             } else if (surprise === 'poesia2') {
                 openModal(
-                    '📝 Poesia 2 - Basso Destra',
+                    '🌊 Poesia 2 - Mare',
                     `<p style="font-style: italic; text-align: center; font-size:1.2em;">
-                        "E tu brilli nei nostri cuori."<br>
+                        Piuttosto di tuffarci<br>
+                        tra le onde<br>
+                        siamo davvero disposti<br>
+                        a rifare smepre<br>
+                        lo stesso castello di sabbia?<br>
                         <span style="color: #FFD700;">— I tuoi amici</span>
                     </p>`
                 );
                 
             } else if (surprise === 'poesia3') {
                 openModal(
-                    '📝 Poesia 3 - Centro Sinistra',
+                    '💭 Poesia 3 - Pensieri',
                     `<p style="font-style: italic; text-align: center; font-size:1.2em;">
-                        "Terza poesia in arrivo..."
+                        Paure in spalla
+                        ti chiedevi
+                        come farò ad arrivare nel futuro.
+                        Leggevi tanto sperando di trovare
+                        una qualche riposta,
+                        sempre alla prossima pagina.
+                        Notti intere a studiare
+                        sotto stelle di carta,
+                        Ma quei capitoli non li ha chesti:
+                        bastava respirare.
                     </p>`
                 );
                 
