@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const surprise = this.dataset.surprise;
             console.log("✨ Cliccata emoji:", surprise);
             
-            // ⭐ STELLA - Poesia 1 (Alto Sinistra)
+            // PRIMA RIGA: Cielo (alto sx) - Foto 1 (alto dx)
             if (surprise === 'poesia1') {
                 openModal(
                     '⭐ Poesia 1 - Cielo',
@@ -50,22 +50,30 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>`
                 );
             }
-            
-            // ⭐ ONDA - Foto 1 (Alto Destra)
             else if (surprise === 'foto1') {
                 openModal(
-                    '⭐ Foto 1 - Onda',
+                    'Foto 1',
                     `<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 500px;">
-                        <img src="Screenshot 2026-03-16 174221.png" 
-                             alt="NESUNO GUARDA MENTRE" 
+                        <img src="foto1.png"
                              style="max-width: 100%; max-height: 400px; width: auto; height: auto; border-radius: 12px; border: 3px solid #FFD700; box-shadow: 0 0 20px rgba(255,215,0,0.3); object-fit: contain;">
                         <p style="color: #FFD700; text-align: center; margin-top: 20px; font-size: 1.8em; font-weight: bold; line-height: 1.8;">
-                            NESUNO<br>GUARDA<br>MENTRE
+    
                         </p>
                     </div>`
                 );
             }
             
+            // SECONDA RIGA: Foto 2 (centro sx) - Mare (centro dx)
+            else if (surprise === 'foto2') {
+                openModal(
+                    'Foto 2',
+                    `<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 500px;">
+                        <img src="foto2.png" 
+                             alt="Seconda foto" 
+                             style="max-width: 100%; max-height: 400px; width: auto; height: auto; border-radius: 12px; border: 3px solid #FFD700; box-shadow: 0 0 20px rgba(255,215,0,0.3); object-fit: contain;">
+                    </div>`
+                );
+            }
             else if (surprise === 'poesia2') {
                 openModal(
                     '🌊 Poesia 2 - Mare',
@@ -81,19 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 );
             }
             
-            // 🌊 ONDA - Foto 2 (Centro Destra)
-            else if (surprise === 'foto2') {
-                openModal(
-                    '🌊 Foto 2 - Onda',
-                    `<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 500px;">
-                        <img src="Screenshot 2026-03-16 174315.png" 
-                             alt="Seconda foto" 
-                             style="max-width: 100%; max-height: 400px; width: auto; height: auto; border-radius: 12px; border: 3px solid #FFD700; box-shadow: 0 0 20px rgba(255,215,0,0.3); object-fit: contain;">
-                    </div>`
-                );
-            }
-            
-            // ⭐ STELLA - Poesia 3 (Basso Sinistra)
+            // TERZA RIGA: Pensieri (basso sx) - Foto 3 (basso dx)
             else if (surprise === 'poesia3') {
                 openModal(
                     '💭 Poesia 3 - Pensieri',
@@ -113,13 +109,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>`
                 );
             }
-            
-            // 💭 NUVOLETTA - Foto 3 (Basso Destra)
             else if (surprise === 'foto3') {
                 openModal(
-                    '💭 Foto 3 - Pensiero',
+                    'Foto 3',
                     `<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 500px;">
-                        <img src="Screenshot 2026-03-16 174338.png" 
+                        <img src="foto3.png" 
                              alt="Terza foto" 
                              style="max-width: 100%; max-height: 400px; width: auto; height: auto; border-radius: 12px; border: 3px solid #FFD700; box-shadow: 0 0 20px rgba(255,215,0,0.3); object-fit: contain;">
                     </div>`
