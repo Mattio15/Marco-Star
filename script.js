@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // INDICE 0: emoji-1 (poesia1) - ⭐ Poesia 1 - Cielo (alto sx)
     emojis[0].addEventListener('click', function() {
         openModal('⭐ Poesia 1 - Cielo',
-            `<div style="text-align:center; min-height: 800px; display: flex; align-items: center; justify-content: center;">
+            `<div style="text-align:center;">
                 <p style="font-style:italic; font-size:1.2em; line-height:1.8;">
                     "Da un giorno all'altro<br>
                     sostituiscono la pioggia.<br>
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // INDICE 2: emoji-3 (poesia3) - 💭 Poesia 3 - Pensieri (basso sx)
     emojis[2].addEventListener('click', function() {
         openModal('💭 Poesia 3 - Pensieri',
-            `<div style="text-align:center; min-height: 800px; display: flex; align-items: center; justify-content: center;">
+            `<div style="text-align:center;">
                 <p style="font-style:italic; font-size:1.2em; line-height:1.8;">
                     "Paure in spalla<br>
                     ti chiedevi<br>
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // INDICE 5: emoji-6 (poesia2) - 🌊 Poesia 2 - Mare (centro dx)
     emojis[5].addEventListener('click', function() {
         openModal('🌊 Poesia 2 - Mare',
-            `<div style="text-align:center>
+            `<div style="text-align:center;">
                 <p style="font-style:italic; font-size:1.2em; line-height:1.8;">
                     "Piuttosto di tuffarci<br>
                     tra le onde<br>
